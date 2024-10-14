@@ -3,27 +3,29 @@ import Image from 'next/image';
 
 export default function Navbar() {
   return (
-    <nav className="w-full bg-zinc-700 p-4">
-        <div className="flex lg:max-w-3xl lg:m-auto">
-            <Image src={logo} alt="logo" width={50} height={50} className="justify-self-start" />
-            <div className="flex items-center gap-4 justify-self-end">
+    <nav className="w-full p-4 px-8 fixed top-0">
+        <div className="flex justify-between">
+            <div className="flex items-center gap-4">
                 <a
-                href="https://nextjs.org/docs"
+                href="/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="hover:underline"
+                className="hover:underline hover:decoration-blue-500"
                 >
-                Docs
+                Projects
                 </a>
                 <a
-                href="https://nextjs.org/learn"
+                href="https://www.linkedin.com/in/ashton-george-160619240/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="hover:underline"
-                >
-                Learn
+                className="hover:underline hover:decoration-teal-500"
+                > 
+                LinkedIn
                 </a>
             </div>
+            <a href="/">
+                <Image src={logo} alt="logo" width={50} height={50} className="justify-self-start" />
+            </a>
         </div>
     </nav>
     );
