@@ -9,7 +9,7 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: linear-gradient(117deg, rgba(18,42,62,1) 0%, rgba(33,71,67,1) 43%, rgba(44,74,99,1) 87%);
+    --background: linear-gradient(117deg, rgba(63,144,174,1) 1%, rgba(66,146,136,1) 51%, rgba(54,131,194,1) 80%);
     --foreground: #ededed;
   }
 }
@@ -17,7 +17,9 @@
 body {
   color: var(--foreground);
   background: var(--background);
+  background-size: 400% 400%;
   font-family: Arial, Helvetica, sans-serif;
+  animation: gradientAnimation 15s ease infinite;
 }
 
 .playfair-display-400 {
@@ -31,6 +33,18 @@ body {
   font-optical-sizing: auto;
   font-weight: 600;
   font-style: normal;
+}
+
+@keyframes gradientAnimation {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
 }
 
 @layer utilities {

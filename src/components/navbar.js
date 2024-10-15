@@ -7,7 +7,7 @@ export default function Navbar() {
         <div className="flex justify-between">
             <div className="flex items-center gap-4">
                 <a
-                href="/"
+                href="/projects"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="hover:underline hover:decoration-blue-500"
