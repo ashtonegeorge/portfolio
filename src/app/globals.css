@@ -9,7 +9,8 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: linear-gradient(117deg, rgba(63,144,174,1) 1%, rgba(66,146,136,1) 51%, rgba(54,131,194,1) 80%);
+    /* --background: linear-gradient(117deg, rgba(63,144,174,1) 1%, rgba(66,146,136,1) 51%, rgba(54,131,194,1) 80%); */
+    --background: linear-gradient(117deg, rgba(18,44,54,1) 1%, rgba(66,146,136,1) 51%, rgba(54,131,194,1) 80%);;
     --foreground: #ededed;
   }
 }
@@ -20,7 +21,9 @@ body {
   background-size: 400% 400%;
   font-family: Arial, Helvetica, sans-serif;
   animation: gradientAnimation 15s ease infinite;
+  overflow-x: hidden;
 }
+
 
 .playfair-display-400 {
   font-family: "Playfair Display", serif;
@@ -45,6 +48,54 @@ body {
 	100% {
 		background-position: 0% 50%;
 	}
+}
+
+.logo {
+  width: 100%; /* Make the logo take the full width of its container */
+  max-width: 50vh; /* Ensure the logo does not exceed 90% of the viewport width */
+  height: auto; /* Maintain the aspect ratio */
+  max-height: 50vh; /* Ensure the logo does not exceed 90% of the viewport height */
+  animation: spin 15s linear infinite;
+  filter: blur(35px);
+}
+
+@media (max-width: 768px) {
+  .logo {
+    max-width: 70vw;
+    max-height: 70vw;
+  }
+}
+
+@keyframes spin {
+  from {
+    transform: rotateY(0deg) rotateX(0deg);
+  }
+  to {
+    transform: rotateY(360deg) rotateX(360deg);
+  }
+}
+
+.acmbg {
+  filter: blur(12px);
+  animation: acmbg 10s ease infinite
+}
+
+@keyframes acmbg {
+  0% {
+    filter: blur(12px);
+  }
+  25% {
+    filter: blur(30px);
+  }
+  50% {
+    filter: blur(50px);
+  }
+  75% {
+    filter: blur(30px);
+  }
+  100% {
+    filter: blur(12px);
+  }
 }
 
 @layer utilities {

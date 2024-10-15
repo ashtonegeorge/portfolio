@@ -19,6 +19,10 @@ export const projectType = defineType({
             },
         }),
         defineField({
+            name: 'repoUrl',
+            type: 'url',
+        }),
+        defineField({
             name: 'mainImage',
             type: 'image',
             options: {

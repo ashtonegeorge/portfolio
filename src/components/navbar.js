@@ -3,13 +3,11 @@ import Image from 'next/image';
 
 export default function Navbar() {
   return (
-    <nav className="w-full p-4 px-8 fixed top-0">
+    <nav className="w-full p-2 px-4 md:p-4 md:px-8 fixed top-0 z-50 bg-cyan-700 md:bg-transparent">
         <div className="flex justify-between">
             <div className="flex items-center gap-4">
                 <a
                 href="/projects"
-                target="_blank"
-                rel="noopener noreferrer"
                 className="hover:underline hover:decoration-blue-500"
                 >
                 Projects
