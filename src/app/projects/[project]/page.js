@@ -3,7 +3,7 @@ import { client } from '@/sanity/lib/client';
 import { PROJECT_QUERY } from "@/sanity/lib/queries";
 import { PortableText } from '@portabletext/react';
 import Link from 'next/link';
-import gh from '../../../assets/gh.png';
+import gh from '../../../public/gh.png';
 
 export default async function Project({ params }) {
     const slug = params.project;

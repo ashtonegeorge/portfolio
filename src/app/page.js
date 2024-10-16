@@ -1,7 +1,8 @@
 import Image from "next/image";
-import me from "../assets/me.jpg";
-import logo from "../assets/logo.png";
-import resume from "../assets/ResumeSep24-1.png";
+import Link from "next/link";
+import me from "../public/me.jpg";
+import logo from "../public/logo.png";
+import resume from "../public/ResumeSep24-1.png";
 
 export default function Home() {
   return (
@@ -40,10 +41,10 @@ export default function Home() {
         </div>
         <div className="text-center md:text-left">
           <p className="2xl:text-3xl text-md text-stone-400 pb-2">At ACM, I was a work study and tutor, providing technical and educational support.</p>
-          <p className="2xl:text-5xl text-lg text-stone-300 pb-2">I have retained a <strong>4.0 GPA</strong> since starting my college career at ACM.</p>
-          <p className="2xl:text-6xl text-xl md:block hidden">I am a recent <strong>transfer</strong>  to Saint Francis University <br /> after graduating from Allegany College of Maryland.</p>
-          <p className="2xl:text-6xl text-xl md:hidden font-semibold">I am a recent <strong>transfer</strong>  to Saint Francis University after graduating from Allegany College of Maryland.</p>
-          <p className="2xl:text-5xl text-lg text-stone-300 pt-2">In May of 2024, I graduated with <strong>two associates degrees</strong> and a certificate.</p>
+          <p className="2xl:text-4xl text-lg text-stone-300 pb-2">I have retained a <strong>4.0 GPA</strong> since starting my college career at ACM.</p>
+          <p className="2xl:text-5xl text-xl md:block hidden">I am a recent <strong>transfer</strong>  to Saint Francis University <br /> after graduating from Allegany College of Maryland.</p>
+          <p className="2xl:text-5xl text-xl md:hidden font-semibold">I am a recent <strong>transfer</strong>  to Saint Francis University after graduating from Allegany College of Maryland.</p>
+          <p className="2xl:text-4xl text-lg text-stone-300 pt-2">In May of 2024, I graduated with <strong>two associates degrees</strong> and a certificate.</p>
           <p className="2xl:text-3xl text-md text-stone-400 pt-2">Here I&apos;m holding my Outstanding Student in Computer Technology Award in May 2024.</p>
         </div>
         <div className="md:block hidden relative w-1/4">
@@ -54,20 +55,20 @@ export default function Home() {
       <section className="md:flex w-full justify-evenly items-center playfair-display-400 text-2xl py-72 md:text-left text-center">
         <div className="w-1/4 md:block hidden">
           <Image src={resume} alt="Ashton's resume." className="" />
-          <a href="../assets/ResumeSep24.docx" className="text-md mx-auto text-center w-full hover:underline hover:decoration-blue-500" download>
-            Download
-          </a>
+          <Link href="/api/download" className="text-md mx-auto text-center w-full hover:underline hover:decoration-blue-500" >
+            <button>Download</button>
+          </Link>
         </div>
         <div className="md:w-1/2 pb-12">
           <p className="2xl:text-3xl text-lg text-stone-300 pb-2">I have experience in IT support and solo development projects.</p>
-          <p className="2xl:text-5xl text-xl">Check out my resume <a href="../assets/ResumeSep24.docx" className="underline decoration-blue-400 font-semibold" download>here</a> for a closer look into my professional career.</p>
-          <p className="2xl:text-3xl text-lg text-stone-300 pt-2">More information about my projects can be found <a href="/projects" className="underline decoration-blue-400 font-semibold">here</a>.</p>
+          <p className="2xl:text-5xl text-xl">Check out my resume <a href="/api/download" className="underline font-semibold" >here</a> for a closer look into my professional career.</p>
+          <p className="2xl:text-3xl text-lg text-stone-300 pt-2">More information about my projects can be found <a href="/projects" className="underline font-semibold">here</a>.</p>
         </div>
         <div className="md:hidden">
           <Image src={resume} alt="Ashton's resume." className="" />
-          <a href="../assets/ResumeSep24.docx" className="text-md mx-auto text-center w-full hover:underline hover:decoration-blue-500" download>
-            Download
-          </a>
+          <Link href="/api/download" className="text-md mx-auto text-center w-full hover:underline hover:decoration-blue-500">
+            <button>Download</button>
+          </Link>
         </div>
       </section>
     </div>
