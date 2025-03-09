@@ -9,8 +9,7 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    /* --background: linear-gradient(117deg, rgba(63,144,174,1) 1%, rgba(66,146,136,1) 51%, rgba(54,131,194,1) 80%); */
-    --background: linear-gradient(117deg, rgba(18,44,54,1) 1%, rgba(66,146,136,1) 51%, rgba(54,131,194,1) 80%);;
+    --background: linear-gradient(117deg, rgb(12, 29, 36) 1%, rgb(21, 48, 45) 51%, rgb(16, 38, 56) 80%);
     --foreground: #ededed;
   }
 }
@@ -77,24 +76,36 @@ body {
 
 .acmbg {
   filter: blur(12px);
-  animation: acmbg 10s ease infinite
+  animation: acmbg 5s ease-in infinite
 }
 
 @keyframes acmbg {
   0% {
-    filter: blur(12px);
+    filter: blur(6px);
+  }
+  12% {
+    filter: blur(8px);
   }
   25% {
-    filter: blur(30px);
+    filter: blur(15px);
+  }
+  37% {
+    filter: blur(23px);
   }
   50% {
-    filter: blur(50px);
-  }
-  75% {
     filter: blur(30px);
   }
+  62% {
+    filter: blur(23px);
+  }
+  75% {
+    filter: blur(15px);
+  }
+  88% {
+    filter: blur(8px);
+  }
   100% {
-    filter: blur(12px);
+    filter: blur(6px);
   }
 }
 

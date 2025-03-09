@@ -34,24 +34,27 @@ export default function Home() {
           </div>
         </div>
       </section>
-      <section className="md:flex w-full justify-evenly items-center playfair-display-600 py-8">
-        <div className="md:hidden relative w-full mb-12">
-          <Image src={me} alt="Ashton pictured holding an award." width={1920} height={1080} className="absolute top-0 left-0 w-full h-full rounded-xl acmbg grayscale" />
-          <Image src={me} alt="Ashton pictured holding an award." width={1920} height={1080} className="relative w-full h-full rounded-xl" />
-        </div>
-        <div className="text-center md:text-left">
-          <p className="2xl:text-3xl text-md text-stone-400 pb-2">At ACM, I was a work study and tutor, providing technical and educational support.</p>
-          <p className="2xl:text-4xl text-lg text-stone-300 pb-2">I have retained a <strong>4.0 GPA</strong> since starting my college career at ACM.</p>
-          <p className="2xl:text-5xl text-xl md:block hidden">I am a recent <strong>transfer</strong>  to Saint Francis University <br /> after graduating from Allegany College of Maryland.</p>
-          <p className="2xl:text-5xl text-xl md:hidden font-semibold">I am a recent <strong>transfer</strong>  to Saint Francis University after graduating from Allegany College of Maryland.</p>
-          <p className="2xl:text-4xl text-lg text-stone-300 pt-2">In May of 2024, I graduated with <strong>two associates degrees</strong> and a certificate.</p>
-          <p className="2xl:text-3xl text-md text-stone-400 pt-2">Here I&apos;m holding my Outstanding Student in Computer Technology Award in May 2024.</p>
-        </div>
-        <div className="md:block hidden relative w-1/4">
-          <Image src={me} alt="Ashton pictured holding an award." width={1920} height={1080} className="absolute top-0 left-0 w-full h-full rounded-xl acmbg grayscale" />
-          <Image src={me} alt="Ashton pictured holding an award." width={1920} height={1080} className="relative w-full h-full rounded-xl" />
-        </div>
-      </section>
+      <div className="relative">
+        <div className="absolute p-16 bg-gradient-to-tr from-teal-800 via-sky-900 to-green-800 rounded-3xl -inset-1 z-0 blur-xl" />
+        <section className="relative md:flex w-full justify-evenly items-center playfair-display-600 p-16 bg-stone-900 rounded-3xl z-200">
+          <div className="md:hidden relative w-full mb-12 z-40">
+            <Image src={me} alt="Ashton pictured holding an award." width={1920} height={1080} className="absolute top-0 left-0 w-full h-full rounded-xl acmbg grayscale" />
+            <Image src={me} alt="Ashton pictured holding an award." width={1920} height={1080} className="relative w-full h-full rounded-xl" />
+          </div>
+          <div className="text-center md:text-left z-20">
+            <p className="2xl:text-3xl text-md text-stone-400 pb-2">At ACM, I was a work study and tutor, providing technical and educational support.</p>
+            <p className="2xl:text-4xl text-lg text-stone-300 pb-2">I have retained a <strong>4.0 GPA</strong> since starting my college career at ACM.</p>
+            <p className="2xl:text-5xl text-xl md:block hidden">I am a recent <strong>transfer</strong>  to Saint Francis University <br /> after graduating from Allegany College of Maryland.</p>
+            <p className="2xl:text-5xl text-xl md:hidden font-semibold">I am a recent <strong>transfer</strong>  to Saint Francis University after graduating from Allegany College of Maryland.</p>
+            <p className="2xl:text-4xl text-lg text-stone-300 pt-2">In May of 2024, I graduated with <strong>two associates degrees</strong> and a certificate.</p>
+            <p className="2xl:text-3xl text-md text-stone-400 pt-2">Here I&apos;m holding my Outstanding Student in Computer Technology Award in May 2024.</p>
+          </div>
+          <div className="md:block hidden relative w-1/5 z-40">
+            <Image src={me} alt="Ashton pictured holding an award." width={1920} height={1080} className="absolute top-0 left-0 w-full h-full rounded-xl acmbg grayscale" />
+            <Image src={me} alt="Ashton pictured holding an award." width={1920} height={1080} className="relative w-full h-full rounded-xl" />
+          </div>
+        </section>
+      </div>
       <section className="md:flex w-full justify-evenly items-center playfair-display-400 text-2xl py-72 md:text-left text-center">
         <div className="w-1/4 md:block hidden">
           <Image src={resume} alt="Ashton's resume." className="" />
@@ -71,6 +74,7 @@ export default function Home() {
           </Link>
         </div>
       </section>
+      
     </div>
   );
 }
