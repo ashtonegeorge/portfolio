@@ -21,8 +21,8 @@ export default function Navbar() {
                 > 
                 LinkedIn
                 </Link>
-                <Link href="/api/download" className="hover:underline hover:decoration-blue-500">
-                    <button>Resume</button>
+                <Link href="/api/download" className="hover:underline hover:cursor-pointer hover:decoration-blue-500">
+                    <button className="hover:underline hover:cursor-pointer hover:decoration-sky-500">Resume</button>
                 </Link>
             </div>
             <a href="/">

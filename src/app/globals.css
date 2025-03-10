@@ -1,6 +1,4 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
 
 :root {
   --background: #ffffff;
@@ -49,12 +47,22 @@ body {
 	}
 }
 
+@keyframes spinner {
+  from {
+    transform: rotate3d(0, 0, 0, 0deg);
+  }
+  to {
+    transform: rotate3d(1, 1, 1, 360deg);
+  }
+}
+
 .logo {
-  width: 100%; /* Make the logo take the full width of its container */
-  max-width: 50vh; /* Ensure the logo does not exceed 90% of the viewport width */
-  height: auto; /* Maintain the aspect ratio */
-  max-height: 50vh; /* Ensure the logo does not exceed 90% of the viewport height */
-  animation: spin 15s linear infinite;
+  width: 100%;
+  max-width: 50vh; 
+  height: auto; 
+  max-height: 50vh; 
+  animation: spinner 15s ease infinite;
+  transform-style: preserve-3d;
   filter: blur(35px);
 }
 
@@ -62,15 +70,6 @@ body {
   .logo {
     max-width: 70vw;
     max-height: 70vw;
-  }
-}
-
-@keyframes spin {
-  from {
-    transform: rotateY(0deg) rotateX(0deg);
-  }
-  to {
-    transform: rotateY(360deg) rotateX(360deg);
   }
 }
 
@@ -112,5 +111,15 @@ body {
 @layer utilities {
   .text-balance {
     text-wrap: balance;
+  }
+}
+
+.blur-xss {
+  filter:blur(1px);
+}
+
+.blockContent {
+  p {
+    margin-bottom: 8px;
   }
 }
