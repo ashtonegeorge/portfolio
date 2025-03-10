@@ -63,10 +63,10 @@ export default function Home() {
         </div>
       </section>
       <div className="py-24 md:px-12">
-        <h1 className="text-2xl md:text-6xl font-semibold playfair-display-600 pb-8">What I'm Using</h1>
+        <h1 className="text-2xl md:text-6xl font-semibold playfair-display-600 pb-8">What I&apos;m Using</h1>
         <div className="w-full grid grid-cols-1 md:grid-cols-3 justify-center grid-flow-row gap-4">
             <TechCard img={figma} label="Figma" desc="my favorite interface design tool"  />
-            <TechCard img={blazor} label=".NET Blazor" desc="a C# web framework I've used in enterprise"  />
+            <TechCard img={blazor} label=".NET Blazor" desc="a C# web framework I&apos;ve used in enterprise"  />
             <TechCard img={tailwind} label="TailwindCSS" desc="the best way to style web applications"  />
             <TechCard img={react} label="React" desc="the industry standard for web components"  />
             <TechCard img={next} label="NextJS" desc="my first choice for SSR and static site rendering"  />
