@@ -4,7 +4,8 @@ import Image from 'next/image';
 import Link from 'next/link';
 
 export default async function Projects() {
-    const projects = await client.fetch(PROJECTS_QUERY);
+    const timestamp = new Date().getTime();
+    const projects = await client.fetch(`${PROJECTS_QUERY}?t=${timestamp}`);
 
     return(
         <div className="flex justify-center w-full playfair-display-600 min-h-[100vh] mt-12 md:pt-0">
