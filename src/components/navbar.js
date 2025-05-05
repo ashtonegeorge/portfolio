@@ -4,8 +4,9 @@ import Link from 'next/link';
 
 export default function Navbar() {
   return (
-    <nav className="w-full p-2 px-4 md:p-4 md:px-8 fixed top-0 z-50 bg-cyan-700 md:bg-transparent">
-        <div className="flex justify-between">
+    <nav className="w-full  fixed top-0 z-50  md:bg-transparent">
+        <div className="absolute bg-linear-to-tr from-teal-800 via-sky-900 to-green-800 md:bg-none rounded-3xl -inset-1 z-0 blur-md" />
+        <div className="relative z-10 flex justify-between bg-stone-900 md:bg-transparent p-2 px-4 md:p-4 md:px-8">
             <div className="flex items-center gap-4">
                 <Link
                 href="/projects"
