@@ -21,3 +21,15 @@ export const PROJECT_QUERY = defineQuery(`*[_type == "project" && slug.current =
     }`, 
     { $slug: 'string' }
 )
+
+export const EXPERIENCE_QUERY = defineQuery(`*[_type == "experience"] | order(date desc) {
+    _id,
+    title,
+    "imageUrl": mainImage.asset->url,
+    date,
+    companyName,
+    description,
+    location,
+    tags,
+    companyWebsite,
+}`)
