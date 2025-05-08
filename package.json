@@ -10,8 +10,8 @@
   },
   "dependencies": {
     "@p5-wrapper/next": "^1.0.3",
-    "@react-three/drei": "^10.0.7",
-    "@react-three/fiber": "^9.1.2",
+    "@react-three/drei": "^9.56.3",
+    "@react-three/fiber": "^8.12.0",
     "@tailwindcss/postcss": "^4.0.12",
     "next": "^15.2.1",
     "next-sanity": "^9.11.0",
