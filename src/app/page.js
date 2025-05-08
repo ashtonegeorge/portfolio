@@ -95,7 +95,7 @@ export default function Home() {
             <TechCard img={git} label="Git" desc="a popular choice for version control"  />
         </div>
       </section>
-      {experience.length > 0 && <section className="relative my-[3rem] md:mx-48">
+      {experience.length > 0 && <section className="relative my-[3rem] xl:mx-48">
         <h1 className="text-2xl md:text-6xl font-semibold playfair-display-600 pb-8 text-center">My professional experience</h1>
         <div className="flex flex-col gap-12">
           {experience.map((e) => 

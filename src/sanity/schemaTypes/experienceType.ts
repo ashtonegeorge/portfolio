@@ -1,5 +1,5 @@
 import { RobotIcon } from "@sanity/icons";
-import { defineArrayMember, defineField, defineType } from "sanity";
+import { defineField, defineType } from "sanity";
 
 export const experienceType = defineType({
     name: 'experience',
