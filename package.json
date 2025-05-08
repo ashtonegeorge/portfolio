@@ -9,6 +9,9 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@p5-wrapper/next": "^1.0.3",
+    "@react-three/drei": "^10.0.7",
+    "@react-three/fiber": "^9.1.2",
     "@tailwindcss/postcss": "^4.0.12",
     "next": "^15.2.1",
     "next-sanity": "^9.11.0",
@@ -16,7 +19,8 @@
     "react-dom": "^18",
     "sanity": "^3.88.1",
     "sharp": "^0.33.5",
-    "styled-components": "^6.1.13"
+    "styled-components": "^6.1.13",
+    "three": "^0.176.0"
   },
   "devDependencies": {
     "eslint": "^8",

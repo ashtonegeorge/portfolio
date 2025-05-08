@@ -2,19 +2,19 @@
 import Image from "next/image";
 import TechCard from "@/components/techCard";
 import me from "../public/me.jpg";
-import logo from "../public/logo.png";
 import figma from "../public/figma.png"
 import blazor from "../public/blazor.png"
 import git from "../public/git.png"
 import next from "../public/next.png"
 import react from "../public/react.png"
 import tailwind from "../public/tailwind.png"
-
 import { client } from "@/sanity/lib/client";
 import { EXPERIENCE_QUERY } from "@/sanity/lib/queries";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import { PortableText } from "next-sanity";
+import { Canvas } from '@react-three/fiber';
+import LogoModel from '../components/LogoModel';
 
 export default function Home() {
   const [experience, setExperience] = useState([]);
@@ -37,8 +37,16 @@ export default function Home() {
   return (
     <div className="w-full h-full px-8">
       <section className="relative h-[100vh] flex justify-center align-middle items-center playfair-display-600 xl:text-7xl md:text-3xl sm:text-3xl text-xl">
-        <div className="absolute inset-0 flex justify-center items-center z-0">
+        {/* <div className="absolute inset-0 flex justify-center items-center z-0">
           <Image src={logo} alt="Logo" className="logo" width={1500} height={1500} />
+        </div> */}
+        <div className='fixed top-0 w-screen h-screen blur-xl z-0'>
+          <Canvas camera={{ position: [2, 2, 5], fov: 50 }}>
+            <ambientLight intensity={0.5} />
+            <directionalLight position={[5, 5, 5]} />
+            <LogoModel scale={1.5} />
+            {/* <OrbitControls /> */}
+          </Canvas>
         </div>
         <div className="relative z-10 flex items-center">
           <h1 className="pr-8">
@@ -84,7 +92,7 @@ export default function Home() {
           </div>
         </div>
       </section>
-      <section className="py-24 max-w-[100rem] mx-auto">
+      <section className="relative py-24 max-w-[100rem] mx-auto z-10">
         <h1 className="text-2xl md:text-6xl font-semibold playfair-display-600 pb-8">What I&apos;m Using</h1>
         <div className="w-full grid grid-cols-1 md:grid-cols-3 justify-center grid-flow-row gap-4">
             <TechCard img={figma} label="Figma" desc="my favorite interface design tool"  />
