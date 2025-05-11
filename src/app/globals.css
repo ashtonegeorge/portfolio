@@ -75,15 +75,15 @@ body {
 
 .acmbg {
   filter: blur(12px);
-  animation: acmbg 5s ease-in infinite
+  animation: acmbg 8s ease-in infinite
 }
 
 @keyframes acmbg {
   0% {
-    filter: blur(6px);
+    filter: blur(8px);
   }
   12% {
-    filter: blur(8px);
+    filter: blur(12px);
   }
   25% {
     filter: blur(15px);
@@ -101,10 +101,10 @@ body {
     filter: blur(15px);
   }
   88% {
-    filter: blur(8px);
+    filter: blur(12px);
   }
   100% {
-    filter: blur(6px);
+    filter: blur(8px);
   }
 }
 

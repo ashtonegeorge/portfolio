@@ -40,7 +40,7 @@ export default function RootLayout({ children }) {
       >
         <Navbar />
         {children}
-        <footer className="flex justify-between fixed bottom-0 w-full text-center z-1 p-2">
+        <footer className="flex justify-between md:fixed md:bottom-0 w-full text-center relative z-1000 p-2">
           <div></div>
           <p className="place-self-end">© 2025 Ashton George</p>
           <div className="flex md:flex-col gap-2 p-2">
