@@ -3,6 +3,8 @@ import Image from 'next/image';
 import Link from 'next/link';
 
 export default function Navbar() {
+  const downloadUrl = `/api/download?t=${Date.now()}`;
+
   return (
     <nav className="w-full fixed top-0 md:bg-transparent z-1000">
         <div className="absolute bg-linear-to-tr from-teal-800 via-sky-900 to-green-800 md:bg-none rounded-3xl -inset-1 z-0 blur-md" />
@@ -22,7 +24,7 @@ export default function Navbar() {
                 > 
                 LinkedIn
                 </Link>
-                <Link href="/api/download" className="hover:underline hover:cursor-pointer hover:decoration-blue-500">
+                <Link href={downloadUrl} className="hover:underline hover:cursor-pointer hover:decoration-blue-500">
                     <button className="hover:underline hover:cursor-pointer hover:decoration-sky-500">Resume</button>
                 </Link>
             </div>

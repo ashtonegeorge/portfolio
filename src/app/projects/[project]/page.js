@@ -6,9 +6,8 @@ import Link from 'next/link';
 import gh from '../../../public/gh.png';
 
 export default async function Project({ params }) {
-    const slug = params.project;
+    const slug = await params.project;
     const project = await client.fetch(PROJECT_QUERY, { slug });
-    const productWithLineBreaks = JSON.stringify(project.product, null, 2).replace(/\n/g, '<br />');
 
     return (
         <section className=''>
