@@ -87,16 +87,16 @@ export default function Home() {
           </div>
         </div>
       </section>
-      <section className="relative w-full lg:mx-auto px-8 md:snap-start md:h-screen md:w-screen min-h-[80rem] md:py-12 py-24 z-100">
+      <section className="relative w-full lg:mx-auto md:snap-start md:h-screen min-h-[80rem] md:py-12 py-24 z-100">
         <div className="flex flex-col justify-center h-full max-w-[100rem] mx-auto min-h-92">
           <h1 className="text-2xl md:text-4xl xl:text-6xl font-semibold playfair-display-600 pb-8">About me</h1>
           <div className="relative md:flex w-full justify-evenly items-center playfair-display-600 p-8 md:p-16 bg-linear-to-tr from-teal-800 via-sky-900 to-green-800 rounded-3xl z-20">
-            <div className="absolute acmbg bg-stone-900 md:shadow-md md:shadow-black border-1 border-stone-950 -inset-1 rounded-3xl -z-1 blur-md" />
+            <div className="absolute acmbg bg-zinc-900 md:shadow-md md:shadow-black border-1 border-stone-950 -inset-1 rounded-3xl -z-1 blur-md" />
             <div className="md:hidden relative w-full mb-12 z-40">
               <Image src={me} alt="Ashton pictured holding an award." width={1920} height={1080} className="absolute top-0 left-0 w-full h-full rounded-xl acmbg grayscale" />
               <Image src={me} alt="Ashton pictured holding an award." width={1920} height={1080} className="relative w-full h-full rounded-xl" />
             </div>
-            <div className="text-left z-20 flex flex-col gap-2 md:gap-8 lg:w-2/3">
+            <div className="text-left z-20 flex flex-col gap-y-2 md:gap-8 lg:w-2/3">
               <p className="2xl:text-2xl text-lg text-stone-400 pb-2">In May 2024, I graduated from Allegany College of Maryland with <strong>two associates degrees</strong> and a certificate.</p>
               <p className="2xl:text-3xl text-xl text-stone-300 pb-2">At ACM, I was a work study and tutor, providing <strong>technical and educational support</strong> for both students and faculty.</p>
               <p className="2xl:text-4xl text-2xl md:block hidden">I am a recent <strong>transfer</strong>  to Saint Francis University <br /> after graduating from Allegany College of Maryland.</p>
@@ -130,20 +130,20 @@ export default function Home() {
               <div className="flex flex-col gap-12">
                 {experience.map((e) => 
                   <div key={e._id} className="flex flex-col gap-2 mx-auto">
-                      <h3 className="relative border-teal-900 border font-semibold text-lg p-4 bg-stone-900 rounded-lg z-10"><span className="text-teal-400">{e.title}</span> @ <span className="text-green-400">{e.companyName}</span></h3>
-                      <div className="bg-stone-800 p-4 md:p-8 border border-green-900 rounded-lg flex flex-col gap-4 max-w-screen z-10">
+                      <h3 className="relative border-teal-900 border font-semibold text-lg p-4 bg-zinc-900 rounded-lg z-10"><span className="text-teal-300">{e.title}</span> @ <span className="text-green-300">{e.companyName}</span></h3>
+                      <div className="bg-zinc-800 p-4 md:p-8 border border-green-900 rounded-lg flex flex-col gap-4 max-w-screen z-10">
                         <div className="flex justify-between flex-col md:flex-row gap-4 md:gap-0">
                           <div className="flex gap-4 flex-col md:flex-row">
                             <div className="flex">
                               <svg width="24" height="24" viewBox="0 0 15 15" fill="96f7e4"><path d="M10 3.5C10 4.70948 9.14112 5.71836 8 5.94999V13.5C8 13.7761 7.77614 14 7.5 14C7.22386 14 7 13.7761 7 13.5V5.94999C5.85888 5.71836 5 4.70948 5 3.5C5 2.11929 6.11929 1 7.5 1C8.88071 1 10 2.11929 10 3.5Z" fill="currentColor" data-darkreader-inline-fill=""></path></svg>
-                              <p className="text-teal-200">{e.location}</p> 
+                              <p className="text-teal-400">{e.location}</p> 
                             </div>
                             <div className="flex gap-2">
                               <svg width="24" height="24" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4.62471 4.00001L4.56402 4.00001C4.04134 3.99993 3.70687 3.99988 3.4182 4.055C2.2379 4.28039 1.29846 5.17053 1.05815 6.33035C0.999538 6.61321 0.999604 6.93998 0.999703 7.43689L0.999711 7.50001L0.999703 7.56313C0.999604 8.06004 0.999538 8.38681 1.05815 8.66967C1.29846 9.8295 2.2379 10.7196 3.4182 10.945C3.70688 11.0001 4.04135 11.0001 4.56403 11L4.62471 11H5.49971C5.77585 11 5.99971 10.7762 5.99971 10.5C5.99971 10.2239 5.77585 10 5.49971 10H4.62471C4.02084 10 3.78907 9.99777 3.60577 9.96277C2.80262 9.8094 2.19157 9.21108 2.03735 8.46678C2.00233 8.29778 1.99971 8.08251 1.99971 7.50001C1.99971 6.91752 2.00233 6.70225 2.03735 6.53324C2.19157 5.78895 2.80262 5.19062 3.60577 5.03725C3.78907 5.00225 4.02084 5.00001 4.62471 5.00001H5.49971C5.77585 5.00001 5.99971 4.77615 5.99971 4.50001C5.99971 4.22387 5.77585 4.00001 5.49971 4.00001H4.62471ZM10.3747 5.00001C10.9786 5.00001 11.2104 5.00225 11.3937 5.03725C12.1968 5.19062 12.8079 5.78895 12.9621 6.53324C12.9971 6.70225 12.9997 6.91752 12.9997 7.50001C12.9997 8.08251 12.9971 8.29778 12.9621 8.46678C12.8079 9.21108 12.1968 9.8094 11.3937 9.96277C11.2104 9.99777 10.9786 10 10.3747 10H9.49971C9.22357 10 8.99971 10.2239 8.99971 10.5C8.99971 10.7762 9.22357 11 9.49971 11H10.3747L10.4354 11C10.9581 11.0001 11.2925 11.0001 11.5812 10.945C12.7615 10.7196 13.701 9.8295 13.9413 8.66967C13.9999 8.38681 13.9998 8.06005 13.9997 7.56314L13.9997 7.50001L13.9997 7.43688C13.9998 6.93998 13.9999 6.61321 13.9413 6.33035C13.701 5.17053 12.7615 4.28039 11.5812 4.055C11.2925 3.99988 10.9581 3.99993 10.4354 4.00001L10.3747 4.00001H9.49971C9.22357 4.00001 8.99971 4.22387 8.99971 4.50001C8.99971 4.77615 9.22357 5.00001 9.49971 5.00001H10.3747ZM5.00038 7C4.72424 7 4.50038 7.22386 4.50038 7.5C4.50038 7.77614 4.72424 8 5.00038 8H10.0004C10.2765 8 10.5004 7.77614 10.5004 7.5C10.5004 7.22386 10.2765 7 10.0004 7H5.00038Z" fill="currentColor" data-darkreader-inline-fill=""></path></svg>
-                              <Link className="text-green-300" href={e.companyWebsite}>{e.companyWebsite}</Link>
+                              <Link className="text-green-400" href={e.companyWebsite}>{e.companyWebsite}</Link>
                             </div>
                           </div>
-                          <div className="text-sky-200">
+                          <div className="text-sky-300">
                             <p>{e.date}</p>
                           </div>
                         </div>
