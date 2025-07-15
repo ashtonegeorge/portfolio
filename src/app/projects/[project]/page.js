@@ -6,13 +6,20 @@ import Link from 'next/link';
 import gh from '../../../public/gh.png';
 
 export default async function Project({ params }) {
-    const slug = await params.project;
+    const paramsRes = await params;
+    const { project: slug } = paramsRes;
     const project = await client.fetch(PROJECT_QUERY, { slug });
 
+    const components = {
+        block: {
+            normal: ({children}) => <p className="leading-9 pt-4">{children}</p>,
+        },
+    }
+
     return (
-        <section className=''>
+        <section className='px-2 md:px-0'>
             <div className='w-full flex relative justify-center playfair-display-400 py-24 text-xl'>
-                <div className='relative md:w-2/3'>
+                <div className='relative md:w-1/2'>
                     <div className='absolute p-6 bg-gradient-to-tr from-teal-800 via-sky-900 to-green-800 rounded-3xl -inset-1 z-1 blur-md' />
                     <div className='relative p-6 bg-stone-900 rounded-3xl md:shadow-lg md:shadow-black z-10'>
                         <h1 className='text-center playfair-display-600 text-3xl'>{project.title}</h1>
@@ -30,13 +37,13 @@ export default async function Project({ params }) {
                         </a>
                         <div className='flex flex-col pt-12 blockContent'>
                             <h2 className='text-center playfair-display-600 decoration-blue-500 underline text-2xl'>Description</h2>
-                            <PortableText value={project.description} />
+                            <PortableText value={project.description} components={components} />
                             <h2 className='text-center playfair-display-600 decoration-blue-500 underline pt-12 text-2xl'>Tech Stack</h2>
-                            <PortableText value={project.techStack} />
+                            <PortableText value={project.techStack} components={components} />
                             <h2 className='text-center playfair-display-600 decoration-blue-500 underline pt-12 text-2xl'>Product</h2>
-                            <PortableText value={project.product} />
+                            <PortableText value={project.product} components={components} />
                             <h2 className='text-center playfair-display-600 decoration-blue-500 underline pt-12 text-2xl'>Outcome</h2>
-                            <PortableText value={project.outcome} />
+                            <PortableText value={project.outcome} components={components} />
                         </div>
                     </div>
                 </div>
