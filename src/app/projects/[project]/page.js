@@ -11,7 +11,7 @@ export default async function Project({ params }) {
 
     const components = {
         block: {
-            normal: ({children}) => <p className="leading-9 px-4 py-2 text-base">{children}</p>,
+            normal: ({children}) => <p className="leading-9 px-4 py-2 text-base md:text-xl">{children}</p>,
         },
     }
 
