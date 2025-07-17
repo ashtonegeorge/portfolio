@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@notionhq/client": "^4.0.1",
     "@react-three/drei": "^10.0.7",
     "@react-three/fiber": "^9.1.2",
     "@tailwindcss/postcss": "^4.0.12",
