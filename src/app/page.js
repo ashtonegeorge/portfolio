@@ -53,7 +53,7 @@ export default function Home() {
 
 
   return (
-    <div className="w-full h-full md:h-screen md:overflow-y-auto md:snap-y md:snap-mandatory md:scroll-smooth">
+    <div className="w-full h-full md:h-screen md:overflow-y-auto md:snap-y md:snap-mandatory md:scroll-smooth scrollbar-hide">
       <section className="relative w-full h-screen min-h-92 flex justify-center align-middle items-center playfair-display-600 xl:text-7xl md:text-3xl sm:text-3xl text-xl md:snap-center py-24 z-100">
         <div className="w-full">
           <div className='fixed top-0 w-full h-screen blur-xl z-0'>
@@ -87,7 +87,7 @@ export default function Home() {
           </div>
         </div>
       </section>
-      <section className="relative w-full lg:mx-auto md:snap-start md:h-screen min-h-[80rem] md:py-12 py-24 z-100">
+      <section className="relative w-full lg:mx-auto md:snap-start md:h-screen min-h-[80rem] px-8 md:py-6 py-24 z-100">
         <div className="flex flex-col justify-center h-full max-w-[100rem] mx-auto min-h-92">
           <h1 className="text-2xl md:text-4xl xl:text-6xl font-semibold playfair-display-600 pb-8">About me</h1>
           <div className="relative md:flex w-full justify-evenly items-center playfair-display-600 p-8 md:p-16 bg-linear-to-tr from-teal-800 via-sky-900 to-green-800 rounded-3xl z-20">
@@ -109,21 +109,34 @@ export default function Home() {
               <Image src={me} alt="Ashton pictured holding an award." width={1920} height={1080} className="relative w-full h-full rounded-xl" />
             </div>
           </div>
-        <section className="relative max-w-[100rem] z-10 py-24 md:py-12 min-h-92">
-          <h1 className="text-2xl md:text-4xl xl:text-6xl font-semibold playfair-display-600 pb-8">What I&apos;m Using</h1>
-          <div className="w-full grid grid-cols-1 md:grid-cols-3 justify-center grid-flow-row gap-4">
-              <TechCard img={figma} label="Figma" desc="my favorite interface design tool"  />
-              <TechCard img={blazor} label=".NET Blazor" desc="a C# web framework I&apos;ve used in enterprise"  />
-              <TechCard img={tailwind} label="TailwindCSS" desc="the best way to style web applications"  />
-              <TechCard img={react} label="React" desc="the industry standard for web components"  />
-              <TechCard img={next} label="NextJS" desc="my first choice for SSR and static site rendering"  />
-              <TechCard img={git} label="Git" desc="a popular choice for version control"  />
+          <div className="flex flex-col justify-center md:min-w-[80rem] mx-auto min-h-6 py-12">
+            <h1 className="text-2xl md:text-4xl xl:text-6xl font-semibold playfair-display-600 pb-8">Hey, I'm Ashton's digital twin.</h1>
+            <Link href='/digitaltwin' className="cursor-text relative md:flex md:w-7/8 w-full justify-evenly items-center playfair-display-600 p-2 md:p-5 bg-linear-to-tr from-teal-800 via-sky-900 to-green-800 rounded-full z-20">
+                <div className="absolute acmbg bg-zinc-800 md:shadow-md md:shadow-black border-1 border-stone-950 -inset-1 rounded-full -z-1 blur-md" />
+                <div className="relative flex md:w-full justify-between mx-2 items-center">
+                  <p className="md:block hidden w-full text-xl text-stone-400 font-light"> Ask me anything about work, goals, or background 💬</p>
+                  <p className="md:hidden w-full text-xl text-stone-400 font-light"> Ask me anything 💬</p>
+                  <svg className="stroke-2 stroke-stone-200 cursor-pointer w-12 h-12" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24" strokeLinecap="round" strokeLinejoin="round">
+                    <path className="" d='M12 16.5v-9M8.5 11 12 7.5l3.5 3.5'/><path d='M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0'/>
+                  </svg>
+                </div>
+            </Link>
           </div>
-        </section>
         </div>
       </section>
-      <section className="relative my-[3rem] md:snap-start md:h-screen px-8 md:pt-24 pb-24 flex flex-col gap-4 justify-center w-full min-h-[100rem] z-100">
+      <section className="relative my-[3rem] md:snap-start md:h-screen px-8 md:pt-24 pb-24 flex flex-col gap-4 justify-center w-full min-h-[125rem] z-100">
         <div className="max-w-7xl mx-auto">
+          <section className="relative max-w-[100rem] z-10 py-24 md:py-12">
+            <h1 className="text-2xl md:text-4xl xl:text-6xl font-semibold playfair-display-600 pb-8">What I&apos;m Using</h1>
+            <div className="w-full grid grid-cols-1 md:grid-cols-3 justify-center grid-flow-row gap-4">
+                <TechCard img={figma} label="Figma" desc="my favorite interface design tool"  />
+                <TechCard img={blazor} label=".NET Blazor" desc="a C# web framework I&apos;ve used in enterprise"  />
+                <TechCard img={tailwind} label="TailwindCSS" desc="the best way to style web applications"  />
+                <TechCard img={react} label="React" desc="the industry standard for web components"  />
+                <TechCard img={next} label="NextJS" desc="my first choice for SSR and static site rendering"  />
+                <TechCard img={git} label="Git" desc="a popular choice for version control"  />
+            </div>
+          </section>
           {experience.length > 0 && 
             <div>
               <h1 className="text-2xl md:text-4xl xl:text-6xl font-semibold playfair-display-600 pb-8 text-left">My professional experience</h1>

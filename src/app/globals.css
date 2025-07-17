@@ -5,6 +5,15 @@
   --foreground: #ededed;
 }
 
+.scrollbar-hide::-webkit-scrollbar {
+  display:none;
+}
+
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
 @media (prefers-color-scheme: dark) {
   :root {
     --background: linear-gradient(117deg, rgb(12, 29, 36) 1%, rgb(21, 48, 45) 51%, rgb(16, 38, 56) 80%);
