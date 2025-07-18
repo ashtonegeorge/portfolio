@@ -109,18 +109,20 @@ export default function Home() {
               <Image src={me} alt="Ashton pictured holding an award." width={1920} height={1080} className="relative w-full h-full rounded-xl" />
             </div>
           </div>
-          <div className="flex flex-col justify-center md:min-w-[80rem] mx-auto min-h-6 py-12">
-            <h1 className="text-2xl md:text-4xl xl:text-6xl font-semibold playfair-display-600 pb-8">Hey, I'm Ashton's digital twin.</h1>
-            <Link href='/digitaltwin' className="cursor-text relative md:flex md:w-7/8 w-full justify-evenly items-center playfair-display-600 p-2 md:p-5 bg-linear-to-tr from-teal-800 via-sky-900 to-green-800 rounded-full z-20">
-                <div className="absolute acmbg bg-zinc-800 md:shadow-md md:shadow-black border-1 border-stone-950 -inset-1 rounded-full -z-1 blur-md" />
-                <div className="relative flex md:w-full justify-between mx-2 items-center">
-                  <p className="md:block hidden w-full text-xl text-stone-400 font-light"> Ask me anything about work, goals, or background 💬</p>
-                  <p className="md:hidden w-full text-xl text-stone-400 font-light"> Ask me anything 💬</p>
-                  <svg className="stroke-2 stroke-stone-200 cursor-pointer w-12 h-12" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24" strokeLinecap="round" strokeLinejoin="round">
-                    <path className="" d='M12 16.5v-9M8.5 11 12 7.5l3.5 3.5'/><path d='M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0'/>
-                  </svg>
-                </div>
-            </Link>
+          <div className="w-full flex justify-center">
+            <div className="min-h-6 py-12 w-full">
+              <h1 className="w-full text-center text-2xl md:text-4xl xl:text-6xl font-semibold playfair-display-600 pb-8">Hey, I'm Ashton's <strong className="text-green-200">digital twin.</strong></h1>
+              <Link href='/digitaltwin' className="mx-auto cursor-text relative md:flex md:w-7/8 w-full justify-evenly items-center playfair-display-600 p-2 md:p-5 bg-linear-to-tr from-teal-800 via-sky-900 to-green-800 rounded-full z-20">
+                  <div className="absolute acmbg bg-zinc-800 md:shadow-md md:shadow-black border-1 border-stone-950 -inset-1 rounded-full -z-1 blur-md" />
+                  <div className="relative flex md:w-full justify-between mx-2 items-center">
+                    <p className="md:block hidden w-full text-xl text-stone-400 font-light"> Ask me anything about work, goals, or background 💬</p>
+                    <p className="md:hidden w-full text-xl text-stone-400 font-light"> Ask me anything 💬</p>
+                    <svg className="stroke-2 stroke-stone-200 cursor-pointer w-12 h-12" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24" strokeLinecap="round" strokeLinejoin="round">
+                      <path className="" d='M12 16.5v-9M8.5 11 12 7.5l3.5 3.5'/><path d='M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0'/>
+                    </svg>
+                  </div>
+              </Link>
+            </div>
           </div>
         </div>
       </section>
