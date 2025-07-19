@@ -2,7 +2,6 @@
 
 :root {
   --background: linear-gradient(144deg,rgba(7, 14, 23, 1) 0%, rgba(12, 36, 26, 1) 50%, rgba(8, 14, 23, 1) 100%);
-  /* --background: linear-gradient(117deg, rgb(12, 29, 36) 1%, rgb(21, 48, 45) 51%, rgb(16, 38, 56) 80%); */
   --foreground: #ededed;
 }
 
@@ -19,11 +18,11 @@ body {
   color: var(--foreground);
   background: var(--background);
   background-size: 400% 400%;
+  background-attachment: fixed;
   font-family: Arial, Helvetica, sans-serif;
   animation: gradientAnimation 15s ease infinite;
   overflow-x: hidden;
 }
-
 
 .playfair-display-400 {
   font-family: "Playfair Display", serif;
