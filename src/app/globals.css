@@ -1,7 +1,8 @@
 @import "tailwindcss";
 
 :root {
-  --background: linear-gradient(117deg, rgb(12, 29, 36) 1%, rgb(21, 48, 45) 51%, rgb(16, 38, 56) 80%);
+  --background: linear-gradient(144deg,rgba(7, 14, 23, 1) 0%, rgba(12, 36, 26, 1) 50%, rgba(8, 14, 23, 1) 100%);
+  /* --background: linear-gradient(117deg, rgb(12, 29, 36) 1%, rgb(21, 48, 45) 51%, rgb(16, 38, 56) 80%); */
   --foreground: #ededed;
 }
 
@@ -12,13 +13,6 @@
 .scrollbar-hide {
   -ms-overflow-style: none;
   scrollbar-width: none;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: linear-gradient(117deg, rgb(12, 29, 36) 1%, rgb(21, 48, 45) 51%, rgb(16, 38, 56) 80%);
-    --foreground: #ededed;
-  }
 }
 
 body {
