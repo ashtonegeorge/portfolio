@@ -91,7 +91,7 @@ export default function DigitalTwin() {
                             </svg>
                         </button>
                     </div>
-                    <p className="text-xs text-stone-400">Please note, my digital twin can make mistakes. Reach out via LinkedIn if necessary.</p>
+                    <p className="hidden md:block text-xs text-stone-400">Please note, my digital twin can make mistakes. Reach out via LinkedIn if necessary.</p>
                 </div>
             </div>
         </main>
