@@ -52,11 +52,19 @@ export default function Home() {
 
   return (
     <div className="w-screen h-screen">
-      <div className="absolute w-screen h-screen">
+      <div className="hidden md:block absolute w-screen h-2/3">
         <Aurora
           colorStops={["#3a80b8", "#449275", "#2c6ca8"]}
           blend={0.5}
-          amplitude={1.0}
+          amplitude={1.5}
+          speed={0.5}
+        />
+      </div>
+      <div className="fixed top-0 md:hidden w-screen h-2/3">
+        <Aurora
+          colorStops={["#3a80b8", "#449275", "#2c6ca8"]}
+          blend={0.5}
+          amplitude={0.5}
           speed={0.5}
         />
       </div>
@@ -111,10 +119,10 @@ export default function Home() {
             </div>
             <div className="w-full flex justify-center">
               <div className="min-h-6 py-12 w-full">
-                <h1 className="w-full text-center text-2xl md:text-4xl xl:text-6xl font-semibold playfair-display-600 pb-8">Hey, I'm Ashton's <strong className="text-green-200">digital twin.</strong></h1>
-                <Link href='/digitaltwin' className="mx-auto cursor-text relative md:flex md:w-7/8 w-full justify-evenly items-center playfair-display-600 p-2 md:p-5 bg-linear-to-tr from-teal-800 via-sky-900 to-green-800 rounded-full z-20">
+                <h1 className="w-full text-center text-4xl xl:text-6xl font-semibold playfair-display-600 pb-8">Hey, I'm Ashton's <strong className="text-green-200">digital twin.</strong></h1>
+                <Link href='/digitaltwin' className="mx-auto cursor-text relative flex md:w-7/8 w-full justify-evenly items-center playfair-display-600 p-2 md:p-5 bg-linear-to-tr from-teal-800 via-sky-900 to-green-800 rounded-full z-20">
                     <div className="absolute acmbg bg-zinc-800 md:shadow-md md:shadow-black border-1 border-stone-950 -inset-1 rounded-full -z-1 blur-md" />
-                    <div className="relative flex md:w-full justify-between mx-2 items-center">
+                    <div className="relative flex w-full justify-between mx-2 items-center">
                       <p className="md:block hidden w-full text-xl text-stone-400 font-light"> Ask me anything about work, goals, or background 💬</p>
                       <p className="md:hidden w-full text-xl text-stone-400 font-light"> Ask me anything 💬</p>
                       <svg className="stroke-2 stroke-stone-200 cursor-pointer w-12 h-12" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24" strokeLinecap="round" strokeLinejoin="round">
