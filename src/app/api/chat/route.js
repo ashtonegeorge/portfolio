@@ -18,7 +18,7 @@ const ratelimit = new Ratelimit({
 
 const get_professional_background = tool({
     name: "get_professional_background",
-    description: "Get Ashton's professional background, including his education and work experience.",
+    description: "Get Ashton's professional background, including his education, work experience, and awards.",
     parameters: z.object({}),
     execute: async () => {
         const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/get-professional-background`);
