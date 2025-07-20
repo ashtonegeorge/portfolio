@@ -95,7 +95,7 @@ export default function Home() {
             </div>
           </div>
         </section>
-        <section className="relative w-full lg:mx-auto md:snap-start md:h-screen min-h-[80rem] px-8 md:py-6 py-24 z-100">
+        <section className="relative w-full lg:mx-auto md:snap-start md:h-screen min-h-[90rem] px-8 md:py-6 py-24 z-100">
           <div className="flex flex-col justify-center h-full max-w-[100rem] mx-auto min-h-92">
             <h1 className="text-2xl md:text-4xl xl:text-6xl font-semibold playfair-display-600 pb-8">About me</h1>
             <div className="relative md:flex w-full justify-evenly items-center playfair-display-600 p-8 md:p-16 bg-linear-to-tr from-teal-800 via-sky-900 to-green-800 rounded-3xl z-20">
@@ -134,7 +134,7 @@ export default function Home() {
             </div>
           </div>
         </section>
-        <section className="relative my-[3rem] md:snap-start md:h-screen px-8 pb-32 flex flex-col gap-4 justify-center w-full min-h-[150rem] z-100">
+        <section className="relative md:snap-start md:h-screen px-8 pb-32 flex flex-col gap-4 justify-center w-full my-auto min-h-[125rem] z-100">
           <div className="max-w-7xl mx-auto">
             <section className="relative max-w-[100rem] z-10 py-24 md:py-12">
               <h1 className="text-2xl md:text-4xl xl:text-6xl font-semibold playfair-display-600 pb-8">What I&apos;m Using</h1>
