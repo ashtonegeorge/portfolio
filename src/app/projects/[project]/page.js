@@ -1,6 +1,7 @@
 import Image from 'next/image';
+import Link from 'next/link';
 import { client } from '@/sanity/lib/client';
-import { PROJECT_QUERY } from "@/sanity/lib/queries";
+import { PROJECT_QUERY, PROJECTS_QUERY } from "@/sanity/lib/queries";
 import { PortableText } from '@portabletext/react';
 import gh from '../../../public/gh.png';
 
@@ -8,7 +9,10 @@ export default async function Project({ params }) {
     const paramsRes = await params;
     const { project: slug } = paramsRes;
     const project = await client.fetch(PROJECT_QUERY, { slug });
-
+    const timestamp = new Date().getTime();
+    const allProjects = await client.fetch(PROJECTS_QUERY, { t: timestamp });
+    const otherProjects = allProjects.filter((p) => p.slug.current !== slug);
+    
     const components = {
         block: {
             normal: ({children}) => <p className="leading-9 px-4 py-2 text-base md:text-xl">{children}</p>,
@@ -16,8 +20,8 @@ export default async function Project({ params }) {
     }
 
     return (
-        <section className='mx-2 md:px-0 overflow-x-hidden'>
-            <div className='w-full flex relative justify-center playfair-display-400 py-24 text-xl'>
+        <section className='mx-2 md:px-0 overflow-x-hidden flex flex-col gap-12 py-24'>
+            <div className='w-full flex relative justify-center playfair-display-400  text-xl'>
                 <div className='relative md:w-1/2 max-w-[100vw]'>
                     <div className='absolute py-6 md:p-6 bg-gradient-to-tr from-teal-800 via-sky-900 to-green-800 rounded-3xl md:-inset-1 z-1 blur-md' />
                     <div className='relative py-6 md:p-6 bg-stone-900 rounded-3xl md:shadow-lg md:shadow-black z-10'>
@@ -49,6 +53,25 @@ export default async function Project({ params }) {
                     </div>
                 </div>
             </div>
+            {otherProjects.length > 0 &&
+              <div className='w-4/5 mx-auto'>
+                <h1 className="text-2xl md:text-4xl font-semibold playfair-display-600 pb-8 text-left">My other projects</h1>
+                <div className="flex flex-col md:flex-row justify-between gap-6 h-full">
+                  {[...otherProjects.slice(-3)].map((p) => 
+                      <Link key={p._id} className="md:max-w-1/3" href={`/projects/${p.slug.current}`}>
+                          <Image
+                              src={p.imageUrl} 
+                              alt={p.title ? p.title : 'Project Image'}
+                              width={1920}
+                              height={1080}
+                              className='rounded-xl my-auto object-cover w-full h-full'
+                          />
+                          <h1 className='text-2xl text-center playfair-display-400'>{p.title}</h1>
+                      </Link>
+                  )}
+                </div>
+              </div>
+            }
         </section>
     )
 }
