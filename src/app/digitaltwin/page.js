@@ -53,8 +53,8 @@ export default function DigitalTwin() {
     }, [messages])
 
     return (
-        <main className="h-screen">
-            <div className="absolute w-screen h-1/2">
+        <main className="max-h-screen">
+            <div className="absolute w-screen h-1/2 top-0">
                 <Aurora
                     colorStops={["#3a80b8", "#449275", "#2c6ca8"]}
                     blend={0.5}
@@ -62,7 +62,7 @@ export default function DigitalTwin() {
                     speed={0.5}
                 />
             </div>
-            <div className="relative flex justify-center w-full max-h-screen pb-24">
+            <div className="relative flex justify-center w-full max-h-screen pb-6 md:pb-24">
                 <div className="md:w-1/2 flex flex-col gap-6 md:gap-12 overflow-y-auto scrollbar-hide py-24 px-2 md:text-lg">
                     {messages.map((msg, i) => (
                         <p className={`${msg.role === 'user' ? 'place-self-end bg-linear-to-tl to-sky-900' : 'place-self-start bg-linear-to-br to-teal-900'} max-w-11/12 md:max-w-5/6 px-6 md:px-8 py-4 bg-zinc-800  from-stone-900 via-stone-800 rounded-4xl border-2 border-stone-900`} key={i}>
