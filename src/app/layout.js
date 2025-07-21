@@ -41,6 +41,7 @@ export default function RootLayout({ children }) {
       >
         <Navbar />
         {children}
+        <Analytics />
         <footer className="hidden md:grid grid-cols-[50%_50%] md:grid-cols-[33%_33%_33%] fixed bottom-0 w-full text-center p-2 max-h-24">
           <p className="place-self-end align-center w-full md:col-start-2">© 2025 Ashton George</p>
           <div className="flex gap-2 p-2 place-self-end">
