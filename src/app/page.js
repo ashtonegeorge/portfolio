@@ -1,19 +1,19 @@
 "use client"
 import Image from "next/image";
 import TechCard from "@/components/techCard";
-import me from "../public/me.jpg";
-import figma from "../public/figma.png"
-import blazor from "../public/blazor.png"
-import git from "../public/git.png"
-import next from "../public/next.png"
-import react from "../public/react.png"
-import tailwind from "../public/tailwind.png"
+import me from "../../public/me.jpg";
+import figma from "../../public/figma.png"
+import blazor from "../../public/blazor.png"
+import git from "../../public/git.png"
+import next from "../../public/next.png"
+import react from "../../public/react.png"
+import tailwind from "../../public/tailwind.png"
 import { client } from "@/sanity/lib/client";
 import { PROJECTS_QUERY, EXPERIENCE_QUERY } from "@/sanity/lib/queries";
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { PortableText } from "next-sanity";
-import Aurora from './Aurora'
+import Aurora from '../components/Aurora'
 
 export default function Home() {
   const [experience, setExperience] = useState([]);
@@ -86,7 +86,7 @@ export default function Home() {
         </section>
         <section className="relative w-full lg:mx-auto md:snap-start md:h-screen min-h-[90rem] px-8 md:py-6 py-24 z-100">
           <div className="flex flex-col justify-center h-full max-w-[100rem] mx-auto min-h-92">
-            <h1 className="text-2xl md:text-4xl xl:text-6xl font-semibold playfair-display-600 pb-8">About me</h1>
+            <h2 className="text-2xl md:text-4xl xl:text-6xl font-semibold playfair-display-600 pb-8">About me</h2>
             <div className="relative md:flex w-full justify-evenly items-center playfair-display-600 p-8 md:p-16 bg-linear-to-tr from-teal-800 via-sky-900 to-green-800 rounded-3xl z-20">
               <div className="absolute acmbg bg-zinc-900 md:shadow-md md:shadow-black border-1 border-stone-950 -inset-1 rounded-3xl -z-1 blur-md" />
               <div className="md:hidden relative w-full mb-12 z-40">
@@ -108,7 +108,7 @@ export default function Home() {
             </div>
             <div className="w-full flex justify-center">
               <div className="min-h-6 py-12 w-full">
-                <h1 className="w-full text-center text-4xl xl:text-6xl font-semibold playfair-display-600 pb-8">Hey, I'm Ashton's <strong className="text-green-200">digital twin.</strong></h1>
+                <h2 className="w-full text-center text-4xl xl:text-6xl font-semibold playfair-display-600 pb-8">Hey, I'm Ashton's <strong className="text-green-200">digital twin.</strong></h2>
                 <Link href='/digitaltwin' className="mx-auto cursor-text relative flex md:w-7/8 w-full justify-evenly items-center playfair-display-600 p-2 md:p-5 bg-linear-to-tr from-teal-800 via-sky-900 to-green-800 rounded-full z-20">
                     <div className="absolute acmbg bg-zinc-800 md:shadow-md md:shadow-black border-1 border-stone-950 -inset-1 rounded-full -z-1 blur-md" />
                     <div className="relative flex w-full justify-between mx-2 items-center">
@@ -126,7 +126,7 @@ export default function Home() {
         <section className="relative md:snap-start md:h-screen px-8 pb-32 flex flex-col gap-4 justify-center w-full my-auto min-h-[125rem] z-100">
           <div className="max-w-7xl mx-auto">
             <section className="relative max-w-[100rem] z-10 py-24 md:py-12">
-              <h1 className="text-2xl md:text-4xl xl:text-6xl font-semibold playfair-display-600 pb-8">What I&apos;m Using</h1>
+              <h2 className="text-2xl md:text-4xl xl:text-6xl font-semibold playfair-display-600 pb-8">What I&apos;m Using</h2>
               <div className="w-full grid grid-cols-1 md:grid-cols-3 justify-center grid-flow-row gap-4">
                   <TechCard img={figma} label="Figma" desc="my favorite interface design tool"  />
                   <TechCard img={blazor} label=".NET Blazor" desc="a C# web framework I&apos;ve used in enterprise"  />
@@ -138,7 +138,7 @@ export default function Home() {
             </section>
             {experience.length > 0 && 
               <div>
-                <h1 className="text-2xl md:text-4xl xl:text-6xl font-semibold playfair-display-600 pb-8 text-left">My professional experience</h1>
+                <h2 className="text-2xl md:text-4xl xl:text-6xl font-semibold playfair-display-600 pb-8 text-left">My professional experience</h2>
                 <div className="flex flex-col gap-12">
                   {experience.map((e) => 
                     <div key={e._id} className="flex flex-col gap-2 mx-auto">
@@ -192,7 +192,7 @@ export default function Home() {
             }
             {projects.length > 0 &&
               <div>
-                <h1 className="text-2xl md:text-4xl xl:text-6xl font-semibold playfair-display-600 pb-8 text-left">My recent projects</h1>
+                <h2 className="text-2xl md:text-4xl xl:text-6xl font-semibold playfair-display-600 pb-8 text-left">My recent projects</h2>
                 <div className="flex flex-col md:flex-row justify-between gap-6 h-full">
                   {[...projects.slice(-3)].map((p) => 
                       <Link key={p._id} className="md:max-w-1/3" href={`/projects/${p.slug.current}`}>
@@ -203,7 +203,7 @@ export default function Home() {
                               height={1080}
                               className='rounded-xl my-auto object-cover w-full h-full'
                           />
-                          <h1 className='text-2xl text-center playfair-display-400'>{p.title}</h1>
+                          <h3 className='text-2xl text-center playfair-display-400'>{p.title}</h3>
                       </Link>
                   )}
                 </div>

@@ -21,8 +21,30 @@ const playfairDisplay = localFont({
 });
 
 export const metadata = {
-  title: "Ashton George",
-  description: "Ashton George's portfolio website showcasing his projects and resume.",
+  title: "Ashton George - Developer and Creator",
+  description: "Portfolio of Ashton George - Full Stack Developer and Creator.",
+  openGraph: {
+    title: "Ashton George - Developer & Creator",
+    description: "Explore my projects, blogs, and insights.",
+    url: "https://ashtoneggeorge.com",
+    siteName: "Ashton George",
+    images: [
+      {
+        url: "https://www.ashtonegeorge.com/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "Ashton George Portfolio OG Image",
+      },
+    ],
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Ashton George - Developer & Creator",
+    description: "Explore my work and blog posts.",
+    images: ["https://www.ashtonegeorge.com/og-image.png"],
+  },
 };
 
 export default function RootLayout({ children }) {
@@ -40,7 +62,7 @@ export default function RootLayout({ children }) {
         className={`${geistSans.variable} ${geistMono.variable} ${playfairDisplay} antialiased max-w-screen`}
       >
         <Navbar />
-        {children}
+        <main>{children}</main>
         <Analytics />
         <footer className="hidden md:grid grid-cols-[50%_50%] md:grid-cols-[33%_33%_33%] fixed bottom-0 w-full text-center p-2 max-h-24">
           <p className="place-self-end align-center w-full md:col-start-2">© 2025 Ashton George</p>
