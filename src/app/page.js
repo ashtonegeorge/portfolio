@@ -70,29 +70,18 @@ export default function Home() {
       </div>
       <div className="relative w-full h-full md:h-screen md:overflow-y-auto md:snap-y md:snap-mandatory md:scroll-smooth scrollbar-hide">
         <section className="relative w-full h-screen min-h-92 flex justify-center align-middle items-center playfair-display-600 xl:text-7xl md:text-3xl sm:text-3xl text-xl md:snap-center py-24 z-100">
-          <div className="w-full">
-            <div className="relative z-10 flex items-center justify-center">
-              <h1 className="pr-8">
-                I am
-              </h1>
-              <div className="">
-                <h2 className="pb-10 text-stone-400">
-                  a Web Developer
-                </h2>
-                <h2 className="pb-10 text-stone-300">
-                  a Comp Sci Student
-                </h2>
-                <h1 className="xl:text-8xl md:text-4xl sm:text-4xl text-2xl">
-                  Ashton George
-                </h1>
-                <h2 className="pt-10 text-stone-300">
-                  an Audiophile
-                </h2>
-                <h2 className="pt-10 text-stone-400">
-                  a Car Enthusiast
-                </h2>
-              </div>
-            </div>
+          <div className="relative z-10 flex flex-col items-center justify-center">
+            <ul className="my-8 flex flex-col w-full items-start gap-6 text-stone-400 attributes">
+              <li>a Web Developer</li>
+              <li className="text-stone-300">a Comp Sci Student</li>
+            </ul>
+            <h1 className="text-3xl sm:text-5xl md:text-6xl xl:text-8xl text-stone-300">
+              I am <span className="text-white">Ashton George</span>
+            </h1>
+            <ul className="my-8 flex flex-col w-full items-start gap-6 text-stone-400 attributes">
+              <li className="text-stone-300">an Audiophile</li>
+              <li className="text-stone-400">a Car Enthusiast</li>
+            </ul>
           </div>
         </section>
         <section className="relative w-full lg:mx-auto md:snap-start md:h-screen min-h-[90rem] px-8 md:py-6 py-24 z-100">

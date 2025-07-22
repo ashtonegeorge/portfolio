@@ -37,6 +37,10 @@ body {
   font-style: normal;
 }
 
+.attributes li {
+  padding-left: 25%;
+}
+
 @keyframes gradientAnimation {
 	0% {
 		background-position: 0% 50%;
