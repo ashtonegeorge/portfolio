@@ -1,19 +1,19 @@
 "use client"
 import Image from "next/image";
 import TechCard from "@/components/techCard";
-import me from "../../public/me.jpg";
-import figma from "../../public/figma.png"
-import blazor from "../../public/blazor.png"
-import git from "../../public/git.png"
-import next from "../../public/next.png"
-import react from "../../public/react.png"
-import tailwind from "../../public/tailwind.png"
+import me from "../../../public/me.jpg";
+import figma from "../../../public/figma.png"
+import blazor from "../../../public/blazor.png"
+import git from "../../../public/git.png"
+import next from "../../../public/next.png"
+import react from "../../../public/react.png"
+import tailwind from "../../../public/tailwind.png"
 import { client } from "@/sanity/lib/client";
 import { PROJECTS_QUERY, EXPERIENCE_QUERY } from "@/sanity/lib/queries";
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { PortableText } from "next-sanity";
-import Aurora from '../components/Aurora'
+import Aurora from '../../components/Aurora'
 
 export default function Home() {
   const [experience, setExperience] = useState([]);
