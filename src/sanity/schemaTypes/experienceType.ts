@@ -1,11 +1,11 @@
-import { RobotIcon } from "@sanity/icons";
+import { CaseIcon } from "@sanity/icons";
 import { defineField, defineType } from "sanity";
 
 export const experienceType = defineType({
     name: 'experience',
     title: 'Experience',
     type: 'document',
-    icon: RobotIcon,
+    icon: CaseIcon,
     fields: [
         defineField({
             name: 'title',

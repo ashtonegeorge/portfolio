@@ -33,3 +33,22 @@ export const EXPERIENCE_QUERY = defineQuery(`*[_type == "experience"] | order(da
     tags,
     companyWebsite,
 }`)
+
+export const POSTS_QUERY = defineQuery(`*[_type == "post" && defined(slug.current)] {
+    _id,
+    title,
+    slug,
+    publishedAt,
+    "imageUrl": image.asset->url,
+}`)
+
+export const POST_QUERY = defineQuery(`*[_type == "post" && slug.current == $slug][0] {
+        _id,
+        title,
+        slug,
+        publishedAt,
+        "imageUrl": image.asset->url,
+        body,
+    }`,
+    { $slug: 'string' }
+)
