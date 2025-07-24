@@ -16,6 +16,7 @@ export default async function BlogPage() {
         <div className="w-full flex flex-col align-middle items-center min-screen mt-12 md:pt-0">
             <section className='flex flex-col pb-8 w-full md:w-2/3 text-left gap-4 pt-12'>
                 <h1 className="text-2xl md:text-4xl xl:text-6xl font-semibold playfair-display-600">My Posts</h1>
+                <h2 className="text-xl md:text-2xl xl:text-3xl text-stone-300">Browse my written works and learn more about what piques your interest.</h2>
             </section>
             <section className="md:w-2/3 md:h-1/2 p-12 grid lg:grid-cols-3 gap-12 playfair-display-600">
                 {posts.map((post) => (
