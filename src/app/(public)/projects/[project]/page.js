@@ -73,10 +73,10 @@ export default async function Project({ params }) {
     }
 
     return (
-        <div className='md:px-0 overflow-x-hidden flex flex-col gap-12 py-12 md:py-24'>
-            <section className='w-full flex flex-col items-center relative justify-center'>
-                <div className='relative md:p-4 md:w-2/3 xl:w-1/2 max-w-screen'>
-                    <div className='absolute py-6 md:p-8 bg-gradient-to-tr from-teal-800 via-sky-900 to-green-800 md:rounded-3xl -inset-1 z-1 blur-md' />
+        <div className='md:px-0 overflow-x-hidden flex flex-col 2xl:flex-row gap-12 py-12 md:py-24 2xl:mx-24'>
+            <section className='md:w-2/3 2xl:w-1/2 mx-auto 2xl:mx-0 2xl:ml-auto flex flex-col items-center relative justify-center'>
+                <div className='relative md:p-4 max-w-screen'>
+                    <div className='absolute hidden xl:block py-6 md:p-8 bg-gradient-to-tr from-teal-800 via-sky-900 to-green-800 md:rounded-3xl -inset-1 z-1 blur-md' />
                     <div className='relative py-6 md:p-6 bg-stone-800 md:bg-stone-900 rounded-b-3xl md:rounded-3xl md:shadow-lg md:shadow-black z-10'>
                         <h1 className='text-center playfair-display-600 text-2xl md:text-3xl lg:text-5xl'>{project['title']}</h1>
                         <div className='flex-inline flex justify-center items-center pb-2'>
@@ -113,23 +113,31 @@ export default async function Project({ params }) {
                 </div>
             </section>
             {otherProjects.length > 0 &&
-              <section className='w-4/5 mx-auto'>
-                <h2 className="text-3xl md:text-4xl lg:text-5xl font-semibold playfair-display-600 pb-8 text-center md:text-left">My other projects</h2>
-                <div className="flex flex-col md:flex-row justify-between gap-6 h-full">
-                  {[...otherProjects.slice(-3)].map((p) => 
-                      <Link key={p._id} className="md:max-w-1/3" href={`/projects/${p.slug.current}`}>
-                          <Image
-                              src={p.imageUrl} 
-                              alt={p.title ? p.title : 'Project Image'}
-                              width={1920}
-                              height={1080}
-                              className='rounded-xl my-auto object-cover w-full h-full'
-                          />
-                          <h3 className='text-2xl text-center playfair-display-400'>{p.title}</h3>
-                      </Link>
-                  )}
-                </div>
-              </section>
+                <section className='w-full 2xl:max-w-1/4'>
+                    <div className='md:p-8'>
+                        <h2 className="text-3xl md:text-4xl font-semibold playfair-display-600 pb-8 text-center md:text-left">My other projects</h2>
+                        <div className="flex flex-col md:flex-row 2xl:flex-col md:gap-6 h-full">
+                        {[...otherProjects.slice(-3)].map((p) => 
+                            <Link key={p._id} className="relative md:w-1/3 2xl:w-full p-4 md:p-0 hover:text-sky-200 transition-colors" href={`/projects/${p.slug.current}`}>
+                                <div className='relative'>
+                                    <Image
+                                        src={p.imageUrl} 
+                                        alt={p.title ? p.title : 'Project Image'}
+                                        width={1920}
+                                        height={1080}
+                                        className='relative rounded-xl my-auto aspect-video w-full min-h-24 xl:min-h-48 2xl:min-h-[12vw] hover:brightness-110 transition-all duration-300'
+                                    />
+                                    <div class="absolute hidden md:block bottom-0 left-0 right-0 top-0 h-full w-full overflow-hidden rounded-xl bg-blue-400 bg-fixed opacity-0 transition duration-300 ease-in-out hover:opacity-30" />
+                                </div>
+                                <div className='pl-3 pt-2'>
+                                    <h3 className='text-xl text-left'><strong>{p.title}</strong></h3>
+                                    <p className='text-md text-left'>{p.publishedAt.split('T')[0]}</p>
+                                </div>
+                            </Link>
+                        )}
+                        </div>
+                    </div>
+                </section>
             }
         </div>
     )

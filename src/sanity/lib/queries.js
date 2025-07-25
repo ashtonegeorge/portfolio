@@ -4,6 +4,7 @@ export const PROJECTS_QUERY = defineQuery(`*[_type == "project" && defined(slug.
     _id,
     title,
     slug,
+    publishedAt,
     "imageUrl": mainImage.asset->url,
 }`)
 
