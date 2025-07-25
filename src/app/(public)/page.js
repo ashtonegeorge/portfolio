@@ -195,15 +195,21 @@ export default function Home() {
                 <h2 className="text-2xl md:text-4xl xl:text-6xl font-semibold playfair-display-600 pb-8 text-left">My recent projects</h2>
                 <div className="flex flex-col md:flex-row justify-between gap-6 h-full">
                   {[...projects.slice(-3)].map((p) => 
-                      <Link key={p._id} className="md:max-w-1/3" href={`/projects/${p.slug.current}`}>
-                          <Image
-                              src={p.imageUrl} 
-                              alt={p.title ? p.title : 'Project Image'}
-                              width={1920}
-                              height={1080}
-                              className='rounded-xl my-auto object-cover w-full h-full'
-                          />
-                          <h3 className='text-2xl text-center playfair-display-400'>{p.title}</h3>
+                      <Link key={p._id} className="relative md:w-1/3 2xl:w-full p-4 md:p-0 hover:text-sky-200 transition-colors" href={`/projects/${p.slug.current}`}>
+                          <div className='relative'>
+                              <Image
+                                  src={p.imageUrl} 
+                                  alt={p.title ? p.title : 'Project Image'}
+                                  width={1920}
+                                  height={1080}
+                                  className='relative rounded-xl my-auto aspect-video w-full min-h-24 xl:min-h-48 2xl:min-h-[12vw] hover:brightness-110 transition-all duration-300'
+                              />
+                              <div class="absolute hidden md:block bottom-0 left-0 right-0 top-0 h-full w-full overflow-hidden rounded-xl bg-blue-400 bg-fixed opacity-0 transition duration-300 ease-in-out hover:opacity-30" />
+                          </div>
+                          <div className='pl-3 pt-2'>
+                              <h3 className='text-xl text-left'><strong>{p.title}</strong></h3>
+                              <p className='text-md text-left'>{p.publishedAt.split('T')[0]}</p>
+                          </div>
                       </Link>
                   )}
                 </div>
