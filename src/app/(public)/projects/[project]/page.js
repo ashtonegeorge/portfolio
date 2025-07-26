@@ -4,7 +4,7 @@ import { client } from '@/sanity/lib/client';
 import { PROJECT_QUERY, PROJECTS_QUERY } from "@/sanity/lib/queries";
 import { PortableText } from '@portabletext/react';
 import gh from '../../../../../public/gh.png';
-import { Fragment } from 'react';
+import { redirect } from 'next/navigation';
 
 export async function generateMetadata({ params, searchParams }, parent) {
     const paramsRes = await params;
@@ -22,6 +22,7 @@ export default async function Project({ params }) {
     const paramsRes = await params;
     const { project: slug } = paramsRes;
     const project = await client.fetch(PROJECT_QUERY, { slug });
+    if(project == null) redirect('/404')
     const timestamp = new Date().getTime();
     const allProjects = await client.fetch(PROJECTS_QUERY, { t: timestamp });
     const otherProjects = allProjects.filter((p) => p.slug.current !== slug);
@@ -73,7 +74,7 @@ export default async function Project({ params }) {
     }
 
     return (
-        <div className='md:px-0 overflow-x-hidden flex flex-col 2xl:flex-row gap-12 py-12 md:py-24 2xl:mx-24'>
+        <div className='overflow-x-hidden flex flex-col 2xl:flex-row gap-12 py-12 md:py-24 2xl:mx-24'>
             <section className='md:w-2/3 2xl:w-1/2 mx-auto 2xl:mx-0 2xl:ml-auto flex flex-col items-center relative justify-center'>
                 <div className='relative md:p-4 max-w-screen'>
                     <div className='absolute hidden xl:block py-6 md:p-8 bg-gradient-to-tr from-teal-800 via-sky-900 to-green-800 md:rounded-3xl -inset-1 z-1 blur-md' />
@@ -127,7 +128,7 @@ export default async function Project({ params }) {
                                         height={1080}
                                         className='relative rounded-xl my-auto aspect-video w-full min-h-24 xl:min-h-48 2xl:min-h-[12vw] hover:brightness-110 transition-all duration-300'
                                     />
-                                    <div class="absolute hidden md:block bottom-0 left-0 right-0 top-0 h-full w-full overflow-hidden rounded-xl bg-blue-400 bg-fixed opacity-0 transition duration-300 ease-in-out hover:opacity-30" />
+                                    <div className="absolute hidden md:block bottom-0 left-0 right-0 top-0 h-full w-full overflow-hidden rounded-xl bg-blue-400 bg-fixed opacity-0 transition duration-300 ease-in-out hover:opacity-30" />
                                 </div>
                                 <div className='pl-3 pt-2'>
                                     <h3 className='text-xl text-left'><strong>{p.title}</strong></h3>

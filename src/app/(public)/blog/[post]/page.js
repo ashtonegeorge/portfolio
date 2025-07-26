@@ -4,10 +4,12 @@ import { client } from "@/sanity/lib/client";
 import { POST_QUERY, POSTS_QUERY } from "@/sanity/lib/queries";
 import { PortableText } from '@portabletext/react';
 import { urlFor } from "@/sanity/lib/imageUrl";
+import { redirect } from "next/navigation";
 
 export default async function PostPage({ params }) {
     const { post: slug } = (await params);
     const post = await client.fetch(POST_QUERY, { slug });
+    if(post == null) redirect('/404')
     const otherPosts = (await client.fetch(POSTS_QUERY)).filter((p) => p.slug.current !== slug)
 
     const components = {
@@ -64,7 +66,7 @@ export default async function PostPage({ params }) {
     }
 
     return (
-        <div className='md:px-0 overflow-x-hidden flex flex-col gap-12 pt-12 md:py-24'>
+        <div className='md:px-0 overflow-x-hidden flex flex-col gap-12 py-12 md:py-24'>
             <section className='w-full flex relative justify-center text-xl'>
                 <div className='relative md:p-4 md:w-2/3 xl:w-1/2 max-w-screen'>
                     <div className='absolute py-6 md:p-8 bg-gradient-to-tr from-teal-800 via-sky-900 to-green-800 md:rounded-3xl -inset-1 z-1 blur-md' />
