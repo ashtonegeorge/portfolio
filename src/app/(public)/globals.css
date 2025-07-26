@@ -62,7 +62,24 @@ body {
   }
 }
 
-
+.linear-wipe {
+  text-align: center;
+  
+  background: linear-gradient(to right, rgb(255, 255, 255) 20%, rgb(0, 136, 255) 30%, rgb(0, 255, 195) 60%, rgb(255, 255, 255) 80%);
+  background-size: 200% auto;
+  
+  color: #000;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  
+  animation: shine 10s linear infinite;
+}
+@keyframes shine {
+  to {
+    background-position: 200% center;
+  }
+}
 
 .logo {
   width: 100%;

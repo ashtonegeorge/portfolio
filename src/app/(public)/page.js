@@ -70,7 +70,7 @@ export default function Home() {
       </div>
       <div className="relative w-full h-full md:h-screen md:overflow-y-auto md:snap-y md:snap-mandatory md:scroll-smooth scrollbar-hide">
         <section className="relative w-full h-screen min-h-92 flex justify-center align-middle items-center playfair-display-600 xl:text-7xl md:text-3xl sm:text-3xl text-xl md:snap-center py-24 z-100">
-          <div className="relative z-10 flex flex-col items-center justify-center">
+          <div className="relative z-10 flex flex-col items-center justify-center linear-wipe">
             <ul className="my-8 flex flex-col w-full items-start gap-6 text-stone-400 attributes">
               <li>a Web Developer</li>
               <li className="text-stone-300">a Comp Sci Student</li>
