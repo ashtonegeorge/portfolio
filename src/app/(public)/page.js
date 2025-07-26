@@ -123,10 +123,10 @@ export default function Home() {
             </div>
           </div>
         </section>
-        <section className="relative md:snap-start md:h-screen px-8 pb-32 flex flex-col gap-4 justify-center w-full my-auto min-h-[125rem] z-100">
+        <section className="relative md:snap-start md:h-screen px-8 pb-32 flex flex-col gap-4 justify-center w-full my-auto min-h-[150rem] z-100">
           <div className="max-w-7xl mx-auto">
             <section className="relative max-w-[100rem] z-10 py-24 md:py-12">
-              <h2 className="text-2xl md:text-4xl xl:text-6xl font-semibold playfair-display-600 pb-8">What I&apos;m Using</h2>
+              <h2 className="text-2xl md:text-4xl xl:text-6xl font-semibold playfair-display-600 pb-8">What I&apos;m using</h2>
               <div className="w-full grid grid-cols-1 md:grid-cols-3 justify-center grid-flow-row gap-4">
                   <TechCard img={figma} label="Figma" desc="my favorite interface design tool"  />
                   <TechCard img={blazor} label=".NET Blazor" desc="a C# web framework I&apos;ve used in enterprise"  />
@@ -137,7 +137,7 @@ export default function Home() {
               </div>
             </section>
             {experience.length > 0 && 
-              <div>
+              <div className="md:py-12">
                 <h2 className="text-2xl md:text-4xl xl:text-6xl font-semibold playfair-display-600 pb-8 text-left">My professional experience</h2>
                 <div className="flex flex-col gap-12">
                   {experience.map((e) => 
@@ -204,7 +204,7 @@ export default function Home() {
                                   height={1080}
                                   className='relative rounded-xl my-auto aspect-video w-full min-h-24 xl:min-h-48 2xl:min-h-[12vw] hover:brightness-110 transition-all duration-300'
                               />
-                              <div class="absolute hidden md:block bottom-0 left-0 right-0 top-0 h-full w-full overflow-hidden rounded-xl bg-blue-400 bg-fixed opacity-0 transition duration-300 ease-in-out hover:opacity-30" />
+                              <div className="absolute hidden md:block bottom-0 left-0 right-0 top-0 h-full w-full overflow-hidden rounded-xl bg-blue-400 bg-fixed opacity-0 transition duration-300 ease-in-out hover:opacity-30" />
                           </div>
                           <div className='pl-3 pt-2'>
                               <h3 className='text-xl text-left'><strong>{p.title}</strong></h3>
@@ -215,6 +215,19 @@ export default function Home() {
                 </div>
               </div>
             }
+            <div className="flex py-16">
+              <h2 className="text-2xl md:text-4xl xl:text-6xl font-semibold playfair-display-600 pb-8 text-left inline">
+                Check out my 
+                  <strong className="">
+                    <span className="text-blue-400 px-1 md:px-3">
+                      blog
+                    </span>
+                    <Link className="decoration-blue-300 text-blue-300 underline decoration-2" href="/blog">here</Link>
+                  </strong>  
+                , where I like to write about <i className="linear-wipe">cool new tech</i>.
+              </h2>
+            </div>
+
           </div>
         </section>
       </div>
