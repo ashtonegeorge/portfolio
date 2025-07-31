@@ -2,7 +2,7 @@ import { client } from "@/sanity/lib/client"
 import { PROJECTS_QUERY } from "@/sanity/lib/queries"
 
 export default async function sitemap() {
-    const projects = await client.fetch(PROJECTS_QUERY)
+    const projects = await client.fetch(PROJECTS_QUERY, {}, { cache: 'no-store' })
     return [
         {
             lastModified: new Date(),

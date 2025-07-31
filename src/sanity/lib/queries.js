@@ -6,6 +6,7 @@ export const PROJECTS_QUERY = defineQuery(`*[_type == "project" && defined(slug.
     slug,
     publishedAt,
     "imageUrl": mainImage.asset->url,
+    "altText": mainImage.alt,
 }`)
 
 export const PROJECT_QUERY = defineQuery(`*[_type == "project" && slug.current == $slug][0] {
@@ -14,6 +15,7 @@ export const PROJECT_QUERY = defineQuery(`*[_type == "project" && slug.current =
     slug,
     repoUrl,
     "imageUrl": mainImage.asset->url,
+    "altText": mainImage.alt,
     publishedAt,
     description,
     techStack,
@@ -27,6 +29,7 @@ export const EXPERIENCE_QUERY = defineQuery(`*[_type == "experience"] | order(da
     _id,
     title,
     "imageUrl": mainImage.asset->url,
+    "altText": mainImage.alt,
     date,
     companyName,
     description,
@@ -41,6 +44,7 @@ export const POSTS_QUERY = defineQuery(`*[_type == "post" && defined(slug.curren
     slug,
     publishedAt,
     "imageUrl": image.asset->url,
+    "altText": image.alt,
 }`)
 
 export const POST_QUERY = defineQuery(`*[_type == "post" && slug.current == $slug][0] {
@@ -49,6 +53,7 @@ export const POST_QUERY = defineQuery(`*[_type == "post" && slug.current == $slu
         slug,
         publishedAt,
         "imageUrl": image.asset->url,
+        "altText": image.alt,
         body,
     }`,
     { $slug: 'string' }

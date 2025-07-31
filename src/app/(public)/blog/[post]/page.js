@@ -8,9 +8,9 @@ import { redirect } from "next/navigation";
 
 export default async function PostPage({ params }) {
     const { post: slug } = (await params);
-    const post = await client.fetch(POST_QUERY, { slug });
+    const post = await client.fetch(POST_QUERY, { slug }, { cache: 'no-store' });
     if(post == null) redirect('/404')
-    const otherPosts = (await client.fetch(POSTS_QUERY)).filter((p) => p.slug.current !== slug)
+    const otherPosts = (await client.fetch(POSTS_QUERY, {}, { cache: 'no-store' })).filter((p) => p.slug.current !== slug)
 
     const components = {
         block: {
@@ -71,7 +71,7 @@ export default async function PostPage({ params }) {
                 <div className='relative md:p-4 md:w-2/3 xl:w-1/2 max-w-screen'>
                     <div className='absolute py-6 md:p-8 bg-gradient-to-tr from-teal-800 via-sky-900 to-green-800 md:rounded-3xl -inset-1 z-1 blur-md' />
                     <div className='relative py-6 md:p-6 bg-stone-800 md:bg-stone-900 rounded-b-3xl md:rounded-3xl md:shadow-lg md:shadow-black z-10'>
-                        <div className="px-3 pb-2 md:text-center flex flex-col gap-1">
+                        <div className="px-3 pb-2 text-center flex flex-col gap-1">
                             <h1 className='playfair-display-600 text-2xl md:text-3xl lg:text-5xl'>{post['title']}</h1>
                             <div className='flex-inline flex justify-center items-center pb-2'>
                                 <h3 className='text-xl text-center'>Ashton's Blog</h3>
@@ -83,8 +83,8 @@ export default async function PostPage({ params }) {
                             post['imageUrl'] && 
                                 <div className='p-4 max-w-2/3 mx-auto relative'>
                                     <div className="relative">
-                                        <div className='absolute md:hidden bg-gradient-to-tr from-teal-800 via-sky-900 to-green-800 md:rounded-3xl -inset-1 z-1 blur-md' />
-                                        <Image className="border-stone-500 md:border rounded-xl relative z-2" src={post['imageUrl']} alt={post['title']} width={1920} height={1080} />
+                                        <div className='absolute bg-gradient-to-tr from-teal-800 via-sky-900 to-green-800 md:rounded-3xl -inset-1 z-1 blur-md' />
+                                        <Image className="border-stone-500 md:border rounded-xl relative z-2" src={post['imageUrl']} alt={post['altText']} width={1920} height={1080} />
                                     </div>
                                 </div>
                         }
@@ -98,25 +98,27 @@ export default async function PostPage({ params }) {
             </section>
             {otherPosts.length > 0 && 
                 <section className='w-4/5 mx-auto'>
-                    <h2 className="text-3xl md:text-4xl lg:text-5xl font-semibold playfair-display-600 pb-8 text-center md:text-left">My other projects</h2>
+                    <h2 className="text-3xl md:text-4xl lg:text-5xl font-semibold playfair-display-600 pb-8 text-center md:text-left">My other posts</h2>
                     {otherPosts.map((post) => (
-                        <div className="relative" key={post._id}>
-                            <Link className="flex flex-col size-fit" href={`/blog/${post.slug.current}`}>
-                                <div className="relative">
-                                    <div className='absolute bg-gradient-to-tr from-teal-800 via-sky-900 to-green-800 rounded-3xl md:-inset-1 z-0 blur-sm' />
-                                    <Image
-                                        src={post.imageUrl} 
-                                        alt={post.title ? post.title : 'post Image'}
-                                        width={1920}
-                                        height={1080}
-                                        className='rounded-xl relative my-auto object-cover w-full h-full border border-stone-800'
-                                    />
-                                </div>
-                                <div className="text-left font-sans p-2">
-                                    <h2 className='text-2xl text-left'>{post.title}</h2>
-                                    <p className='text-md'>{post.publishedAt.split('T')[0]}</p>
-                                </div>
-                            </Link>
+                        <div className="w-full flex justify-evenly" key={post._id}>
+                            <div className="relative grid md:grid-cols-[33vw_33vw] lg:grid-cols-[20vw_20vw_20vw] gap-[5vw]">
+                                <Link className="flex flex-col size-fit hover:text-sky-200 transition-colors" href={`/blog/${post.slug.current}`}>
+                                    <div className="relative">
+                                        <Image
+                                            src={post.imageUrl} 
+                                            alt={post.title ? post.title : 'post Image'}
+                                            width={1920}
+                                            height={1080}
+                                            className='rounded-xl relative my-auto object-cover w-full h-full border border-stone-800'
+                                        />
+                                        <div className="absolute hidden md:block bottom-0 left-0 right-0 top-0 h-full w-full overflow-hidden rounded-xl bg-blue-400 bg-fixed opacity-0 transition duration-300 ease-in-out hover:opacity-30" />
+                                    </div>
+                                    <div className="text-left font-sans p-2">
+                                        <h3 className='text-xl text-left playfair-display-400'><strong>{post.title}</strong></h3>
+                                        <p className='text-md'>{post.publishedAt.split('T')[0]}</p>
+                                    </div>
+                                </Link>
+                            </div>
                         </div>
                     ))}
                 </section>

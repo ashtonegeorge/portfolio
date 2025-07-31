@@ -9,7 +9,7 @@ import { redirect } from 'next/navigation';
 export async function generateMetadata({ params, searchParams }, parent) {
     const paramsRes = await params;
     const { project: slug } = paramsRes;
-    const project = await client.fetch(PROJECT_QUERY, { slug });
+    const project = await client.fetch(PROJECT_QUERY, { slug }, { cache: 'no-store' });
  
     return {
         title: "Ashton George - " + project['title'],
@@ -21,11 +21,10 @@ export async function generateMetadata({ params, searchParams }, parent) {
 export default async function Project({ params }) {
     const paramsRes = await params;
     const { project: slug } = paramsRes;
-    const project = await client.fetch(PROJECT_QUERY, { slug });
+    const project = await client.fetch(PROJECT_QUERY, { slug }, { cache: 'no-store' });
     if(project == null) redirect('/404')
     const timestamp = new Date().getTime();
-    const allProjects = await client.fetch(PROJECTS_QUERY, { t: timestamp });
-    const otherProjects = allProjects.filter((p) => p.slug.current !== slug);
+    const otherProjects = ( await client.fetch(PROJECTS_QUERY, { t: timestamp }, { cache: 'no-store' }) ).filter((p) => p.slug.current !== slug);
     
     const components = {
         block: {
@@ -85,8 +84,9 @@ export default async function Project({ params }) {
                             <span className='px-2'> • </span>
                             <p className='text-center text-xl'>{project.publishedAt.split('T')[0]}</p>
                         </div>
-                        <div className='p-4'>
-                            <Image src={project['imageUrl']} alt={project['title']} width={1920} height={1080} className='rounded-xl' />
+                        <div className='relative m-4'>
+                            <div className='absolute py-6 md:p-8 bg-gradient-to-tr from-teal-800 via-sky-900 to-green-800 md:rounded-3xl -inset-1 z-1 blur-md' />
+                            <Image src={project['imageUrl']} alt={project['altText']} width={1920} height={1080} className='rounded-xl relative z-10' />
                         </div>
                         <Link href={project['repoUrl']} target='_blank' rel='noopener noreferrer' className='flex w-full justify-center items-center'>
                             <Image 
@@ -123,7 +123,7 @@ export default async function Project({ params }) {
                                 <div className='relative'>
                                     <Image
                                         src={p.imageUrl} 
-                                        alt={p.title ? p.title : 'Project Image'}
+                                        alt={p.altText}
                                         width={1920}
                                         height={1080}
                                         className='relative rounded-xl my-auto aspect-video w-full min-h-24 xl:min-h-48 2xl:min-h-[12vw] hover:brightness-110 transition-all duration-300'
@@ -131,7 +131,7 @@ export default async function Project({ params }) {
                                     <div className="absolute hidden md:block bottom-0 left-0 right-0 top-0 h-full w-full overflow-hidden rounded-xl bg-blue-400 bg-fixed opacity-0 transition duration-300 ease-in-out hover:opacity-30" />
                                 </div>
                                 <div className='pl-3 pt-2'>
-                                    <h3 className='text-xl text-left'><strong>{p.title}</strong></h3>
+                                    <h3 className='text-xl text-left playfair-display-400'><strong>{p.title}</strong></h3>
                                     <p className='text-md text-left'>{p.publishedAt.split('T')[0]}</p>
                                 </div>
                             </Link>

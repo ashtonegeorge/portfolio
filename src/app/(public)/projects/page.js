@@ -11,7 +11,7 @@ export const metadata = {
 
 export default async function Projects() {
     const timestamp = new Date().getTime();
-    const projects = await client.fetch(PROJECTS_QUERY, { t: timestamp });
+    const projects = await client.fetch(PROJECTS_QUERY, { t: timestamp }, { cache: 'no-store' });
 
     return(
         <div className="w-full flex flex-col align-middle items-center min-screen my-12 md:pt-0 px-6">
@@ -26,7 +26,7 @@ export default async function Projects() {
                             <div className='absolute bg-gradient-to-tr from-teal-800 via-sky-900 to-green-800 rounded-3xl md:-inset-1 z-0 blur-sm' />
                             <Image
                                 src={project.imageUrl} 
-                                alt={project.title ? project.title : 'Project Image'}
+                                alt={project.altText}
                                 width={1920}
                                 height={1080}
                                 className='relative rounded-xl my-auto aspect-video w-full min-h-24 xl:min-h-48 2xl:min-h-[12vw] hover:brightness-110 transition-all duration-300'

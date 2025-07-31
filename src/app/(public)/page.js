@@ -29,7 +29,7 @@ export default function Home() {
     async function getProjects() {
       try {
         const timestamp = new Date().getTime();
-        const projectsArray = await client.fetch(PROJECTS_QUERY, { t: timestamp });
+        const projectsArray = await client.fetch(PROJECTS_QUERY, { t: timestamp }, { cache: 'no-store' });
         setProjects(projectsArray);        
       } catch (error) {
         console.error("Error fetching projects:", error )
@@ -38,7 +38,7 @@ export default function Home() {
 
     async function getExperience() {
       try {
-        const experienceArray = await client.fetch(EXPERIENCE_QUERY);
+        const experienceArray = await client.fetch(EXPERIENCE_QUERY, {}, { cache: 'no-store' });
         setExperience(experienceArray);
       } catch (error) {
         console.error("Error fetching experience:", error);

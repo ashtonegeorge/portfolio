@@ -10,7 +10,7 @@ export const metadata = {
 };
 
 export default async function BlogPage() {
-    const posts = (await client.fetch(POSTS_QUERY)).reverse();
+    const posts = (await client.fetch(POSTS_QUERY, {}, { cache: 'no-store' })).reverse();
 
     return (
         <div className="w-full flex flex-col align-middle items-center min-screen my-12 md:pt-0 px-6">
@@ -26,7 +26,7 @@ export default async function BlogPage() {
                                 <div className='absolute bg-gradient-to-tr from-teal-800 via-sky-900 to-green-800 rounded-3xl md:-inset-1 z-0 blur-sm' />
                                 <Image
                                     src={post.imageUrl} 
-                                    alt={post.title ? post.title : 'post Image'}
+                                    alt={post.altText}
                                     width={1920}
                                     height={1080}
                                     className='rounded-xl relative my-auto object-cover w-full h-full border border-stone-800'
@@ -34,7 +34,7 @@ export default async function BlogPage() {
                                 <div className="absolute hidden md:block bottom-0 left-0 right-0 top-0 h-full w-full overflow-hidden rounded-xl bg-blue-400 bg-fixed opacity-0 transition duration-300 ease-in-out hover:opacity-30" />
                             </div>
                             <div className="text-left p-2">
-                                <h2 className='text-xl text-left'>{post.title}</h2>
+                                <h3 className='text-xl text-left'><strong>{post.title}</strong></h3>
                                 <p className='text-md font-sans'>{post.publishedAt.split('T')[0]}</p>
                             </div>
                         </Link>
