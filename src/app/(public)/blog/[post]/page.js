@@ -99,10 +99,10 @@ export default async function PostPage({ params }) {
             {otherPosts.length > 0 && 
                 <section className='w-4/5 mx-auto'>
                     <h2 className="text-3xl md:text-4xl lg:text-5xl font-semibold playfair-display-600 pb-8 text-center md:text-left">My other posts</h2>
-                    {otherPosts.map((post) => (
-                        <div className="w-full flex justify-evenly" key={post._id}>
-                            <div className="relative grid md:grid-cols-[33vw_33vw] lg:grid-cols-[20vw_20vw_20vw] gap-[5vw]">
-                                <Link className="flex flex-col size-fit hover:text-sky-200 transition-colors" href={`/blog/${post.slug.current}`}>
+                    <div className="w-full flex justify-evenly" >
+                        <div className="relative grid md:grid-cols-[33vw_33vw] lg:grid-cols-[20vw_20vw_20vw] gap-[5vw]">
+                            {otherPosts.map((post) => (
+                                <Link key={post._id} className="flex flex-col size-fit hover:text-sky-200 transition-colors" href={`/blog/${post.slug.current}`}>
                                     <div className="relative">
                                         <Image
                                             src={post.imageUrl} 
@@ -118,9 +118,9 @@ export default async function PostPage({ params }) {
                                         <p className='text-md'>{post.publishedAt.split('T')[0]}</p>
                                     </div>
                                 </Link>
-                            </div>
+                            ))}
                         </div>
-                    ))}
+                    </div>
                 </section>
             }
         </div>
